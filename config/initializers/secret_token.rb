@@ -9,4 +9,20 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Hayzilla::Application.config.secret_key_base = '6d6b91f2ad12c9543d55bf732802e6e0767e230bc07e9ee21ea5e0db6230bc72f9154b2270ee7c7e90eeda7da5dfe220524afa26b244a78069178235f7dc374f'
+
+require 'securerandom'
+
+def secure_token
+	token_file = Rails.root.join('.secret')
+	if File.exist? (token_file)
+		# use the existing token
+		File.read(token_file).chomp
+	else
+		#generate a new token and store it in token_file.
+		token = SecureRandom.hex(64)
+		File.write(token_file, token)
+		token
+	end
+end
+
+Hayzilla::Application.config.secret_key_base = secure_token
