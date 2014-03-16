@@ -1,4 +1,4 @@
-require 'spec_archiveer'
+require 'spec_helper'
 
 describe "Static pages" do
 
@@ -21,9 +21,9 @@ describe "Static pages" do
   		expect(page).to have_content('Archive')
   	end
 
-  	it "should have the title 'archive'" do
+  	it "should have the title 'Archive'" do
     	visit '/static_pages/archive'
-    	expect(page).to have_title('archive')
+    	expect(page).to have_title('Archive')
     end
 
   end
