@@ -25,6 +25,8 @@ end
 
 # Markdown interpreter
 gem 'redcarpet'
+gem 'albino'
+gem 'nokogiri'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '4.0.1'
