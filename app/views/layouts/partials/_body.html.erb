@@ -1,0 +1,16 @@
+<body>
+	<header>
+		<div class="gridContainer clearfix">
+			<div class="fluid logo">
+				<h1><%= link_to "Hayzilla!", root_path %></h1>
+			</div>
+		</div>
+	</header>
+	<%= render 'layouts/partials/navigation' %>
+	<div role="main">
+		<div class="gridContainer clearfix">
+			<%= yield %>
+		</div>
+	</div>
+</body>
+</html>
