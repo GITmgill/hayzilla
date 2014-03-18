@@ -1,0 +1,133 @@
+header {
+	// @include box-shadow(0px 1px 4px rgba(0,0,0,.3));
+	padding:10px 0;
+	background-color:$white;
+	.logo {
+		h1 {
+			a {
+				text-align:center;
+				text-transform:uppercase;
+				margin: 0 auto rhythm(1, 42px);
+				color:$black;
+				display:block;
+				font-family: 'Oswald', sans-serif;
+			}
+			a:visited {
+				color:$black;
+			}
+		}
+	}
+}
+nav {
+	.navigation {
+		text-align:right;
+		ul {
+			li {
+				display:inline-block;
+				margin-left:20px;
+				a {
+					color:$orange;
+					font-family: 'Oswald', sans-serif;
+					@include trans;
+				}
+				a:visited {
+					color:$orange;
+				}
+				a:hover {
+					@include trans;
+					@include box-shadow(0px 2px 0px $orange);
+				}
+			}
+		}
+	}
+	.pagination {
+		a {
+			color:$orange;
+			@include trans;
+			@include adjust-font-size-to(20px);
+			font-family: 'Oswald', sans-serif;
+		}
+		a:visited {
+			color:$orange;
+		}
+		a:hover {
+			color:$orange + 50;
+			@include trans;
+		}
+	}
+}
+.each_article {
+	article {
+		margin: 0 auto rhythm(10, 30px);
+		hgroup {
+			border-bottom:1px solid $orange;
+			h2 {
+				@include adjust-font-size-to(42px);
+				a {
+					color:$black;
+					font-family: 'Oswald', sans-serif;
+				}
+				a:visited {
+					color:$black;
+				}
+				a:hover {
+					color:$green;
+				}
+			}
+			p {
+				margin:0;
+			}
+		}
+		p {
+			@include adjust-font-size-to(18px);
+			display:block;
+			margin: rhythm(1, 18px) auto rhythm(1, 18px);
+				strong {
+					font-weight:bold;	
+				}
+				span {
+					background-color:$green + 40;
+				}
+		}
+		a {
+			color:$orange;
+			@include trans;
+		}
+		a:visited {
+			color:$orange;
+		}
+		a:hover {
+			color:$orange + 50;
+			@include trans;
+		}
+		ul {
+			li:before {
+				content: "•";
+				color:$green;
+			}
+		}
+		div {
+			margin: rhythm(2, 18px) auto rhythm(1, 18px);
+			text-align:right;
+			a {
+				background-color:$green;
+				color:$white;
+				padding:10px 40px;
+				@include box-shadow(0px 4px 0px $green - 60);
+			}
+			a:visited {
+				color:$white;
+			}
+			a:hover {
+				color:$white;
+				background-color:$green - 10;
+				@include trans;
+			}
+		}
+		img {
+			display:block;
+			margin:20px auto;
+			width:100%;
+		}
+	}
+}

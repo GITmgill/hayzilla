@@ -1,0 +1,16 @@
+// color: 
+
+$green: #7ea883;
+$orange: #ff5a26;
+$black: #222;
+$white: #fff;
+
+// font: 
+$base-font-size:17px;
+$base-line-height:28px;
+
+@include establish-baseline;
+
+@mixin trans {
+	@include transition(.3s);
+}

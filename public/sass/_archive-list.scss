@@ -1,0 +1,21 @@
+.archive_list {
+	a {
+		color:$orange;
+		@include adjust-font-size-to(24px);
+		display:block;
+		margin: rhythm(1, 18px) auto rhythm(1, 18px);
+	}
+	a:visited {
+		color:$orange;
+	}
+	a:hover {
+		color:$green + 50;
+		@include trans;
+	}
+	h3 {
+		@include adjust-font-size-to(32px);
+		padding-bottom:10px;
+		margin-bottom:10px;
+		border-bottom:1px solid $orange;
+	}
+}
