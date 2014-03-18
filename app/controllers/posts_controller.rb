@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
 
-	http_basic_authenticate_with name: "zillahay", password: "12321",
-	except: [:index, :show]
+	http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
 
 	def new
 	end
@@ -9,8 +8,8 @@ class PostsController < ApplicationController
 	def create
 		@post = Post.new(post_params)
 
-		@post.save
-		redirect_to @post
+		if @post.save
+			redirect_to @post
 		else
 			render 'new'
 		end
@@ -49,5 +48,4 @@ class PostsController < ApplicationController
 	  def post_params
 	    params.require(:post).permit(:title, :text)
 	  end
-
 end
