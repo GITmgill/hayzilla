@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
 
+	http_basic_authenticate_with name: "zillahay", password: "12321",
+	except: [:index, :show]
+
 	def new
 	end
 
