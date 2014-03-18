@@ -1,24 +1,71 @@
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
- 
-<p>
-  <strong>Text:</strong>
-  <%= @post.text %>
-</p>
+    <div class="fluid each_article">
+        <article>
+          <hgroup>
+            <h2><%= @post.title %></h2>
+            <p>By: <%= @post.author %></p>
+          </hgroup>
+          <img src="http://lorempixel.com/800/400" />
+          <p><%= @post.short %></p>
+          <p><%= @post.text %></p>
+        </article>
+    </div>
+  </div>
+  <div class="fluid comment_box">
+    <div class="gridContainer clearfix">
+      <div class="fluid comments">
+        <% @post.comments.each do |comment| %>
+        <div class="comments_each">
+          <p>
+            <strong><%= comment.commenter %></strong>
+          </p>
+         
+          <p>
+            <%= comment.body %>
+          </p>
 
-<h2>Add a comment:</h2>
-<%= form_for([@post, @post.comments.build]) do |f| %>
-  <p>
-    <%= f.label :commenter %><br />
-    <%= f.text_field :commenter %>
-  </p>
-  <p>
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+          <%= link_to 'Destroy Comment', [comment.post, comment],
+                       method: :delete,
+                       data: { confirm: 'Are you sure?' } %>
+        </div>
+      <% end %>
+        <div class="fluid comments_form">
+          <h2>Add a comment:</h2>
+            <%= form_for([@post, @post.comments.build]) do |f| %>
+              <li>
+                <%= f.text_field :commenter, :placeholder => "Name" %>
+              </li>
+              <li>
+                <%= f.text_area :body, :placeholder => "Add a comment", :class => "common", :id => "comments" %>
+              </li>
+              <li>
+                <%= f.submit :value => "Comment" %>
+              </li>
+            <% end %>
+        </div>
+      </div>
+    </div>
+
+
+
+
+<script>
+  var txt = $('#comments'),
+      hiddenDiv = $(document.createElement('div')),
+      content = null;
+
+  txt.addClass('txtstuff');
+  hiddenDiv.addClass('hiddendiv common');
+
+  $('body').append(hiddenDiv);
+
+  txt.on('keyup', function () {
+
+      content = $(this).val();
+
+      content = content.replace(/\n/g, '<br>');
+      hiddenDiv.html(content + '<br class="lbr">');
+
+      $(this).css('height', hiddenDiv.height());
+
+  });
+</script>
