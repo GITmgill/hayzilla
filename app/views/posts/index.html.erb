@@ -7,7 +7,7 @@
       </hgroup>
       <img src="http://lorempixel.com/400/200" />
       <p>
-        <%= post.short %>
+        <%= markdown(post.short) %>
       </p>
       <div>
         <%= link_to 'Read More', post %>
