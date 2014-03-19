@@ -1,10 +1,10 @@
 class StaticPagesController < ApplicationController
-  def home
-  end
+	def home
+	end
 
-  def archive
-  end
+	def archive
+	end
 
-  def about
-  end
+	def about
+	end
 end

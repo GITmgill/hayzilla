@@ -4,9 +4,9 @@
 	<h3>2014</h3>
 		<nav>
 			<ul>
-				<li><a href="#">Article 1, March 16<sup>th</sup>, 2014</a></li>
-				<li><a href="#">Article 2, March 16<sup>th</sup>, 2014</a></li>
-				<li><a href="#">Article 3, March 16<sup>th</sup>, 2014</a></li>
+			<% @posts.each do |post| %>
+				<li><%= post.title %></li>
+			<% end %>
 			</ul>
 		</nav>
 </div>

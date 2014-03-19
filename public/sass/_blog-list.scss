@@ -64,9 +64,11 @@ nav {
 			border-bottom:1px solid $orange;
 			h2 {
 				@include adjust-font-size-to(42px);
+				margin-bottom:5px;
 				a {
 					color:$black;
 					font-family: 'Oswald', sans-serif;
+
 				}
 				a:visited {
 					color:$black;

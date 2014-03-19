@@ -2,7 +2,7 @@ Hayzilla::Application.routes.draw do
   get "users/new"
   root  'posts#index'
   match '/about',   to: 'static_pages#about',   via: 'get'
-  match '/archive', to: 'static_pages#archive', via: 'get'
+  match '/archive', to: 'posts#archive', via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
