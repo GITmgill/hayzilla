@@ -5,7 +5,9 @@
         <h2><%= link_to post.title, post %></h2>
         <p>By: <%= post.author %> on <%= post.created_at.strftime('%b, %d') %></p>
       </hgroup>
-      <%= image_tag post.photo.url %>
+      <% if !post.photo.blank? %>
+        <%= image_tag post.photo.url %>
+      <% end %>
       <p>
         <%= markdown(post.short) %>
       </p>
