@@ -18,6 +18,7 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
+		redirect_to_good_slug(@post) and return if bad_slug?(@post)
 	end
 
 	def archive

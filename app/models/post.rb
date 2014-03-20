@@ -1,4 +1,7 @@
 class Post < ActiveRecord::Base
+
+	custom_slugs_with(:title)
+
 	has_many :comments, dependent: :destroy
 
 	has_attached_file :photo,
