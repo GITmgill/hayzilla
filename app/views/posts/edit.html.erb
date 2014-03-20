@@ -1,5 +1,3 @@
-<h1>Editing post</h1>
- 
 <%= form_for :post, url: post_path(@post), method: :patch do |f| %>
   <% if @post.errors.any? %>
   <div id="error_explanation">
@@ -12,19 +10,29 @@
     </ul>
   </div>
   <% end %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
- 
-  <p>
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
-  </p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
+  <ul>
+    <li>
+      <%= f.text_field :title, :placeholder => "Title" %>
+    </li>
+
+    <li>
+      <%= f.text_field :author, :placeholder => "Author" %>
+    </li>
+
+    <li>
+      <%= f.text_area :short, :placeholder => "First Paragraph" %>
+    </li>
+
+    <li>
+      <%= f.text_area :text, :placeholder => "Write your blog here", :class => "common", :id => "comments" %>
+    </li>
+    <li>
+      <%= f.file_field :pics %>
+    </li>
+    <li>
+      <%= f.submit %>
+    </li>
+  </ul>
 <% end %>
  
 <%= link_to 'Back', posts_path %>

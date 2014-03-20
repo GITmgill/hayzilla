@@ -4,7 +4,7 @@
             <h2><%= @post.title %></h2>
             <p>By: <%= @post.author %> on <%= @post.created_at.strftime('%b, %d') %></p>
           </hgroup>
-          <img src="http://lorempixel.com/800/400" />
+          <%= image_tag @post.photo.url %>
           <p><%= markdown(@post.short) %></p>
           <p><%= markdown(@post.text) %></p>
         </article>

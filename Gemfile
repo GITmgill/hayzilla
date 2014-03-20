@@ -23,6 +23,11 @@ group :production do
 	gem 'rails_12factor', '0.0.2'
 end
 
+#paperclip image uploader
+
+gem "paperclip", "~> 3.5.3"
+
+
 #font awesome
 gem 'font-awesome-rails'
 

@@ -21,7 +21,7 @@ class PostsController < ApplicationController
 	end
 
 	def archive
-	  @posts = Post.all
+	  	@posts = Post.all
 	end
 
 	def edit
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
 	def update
 		@post = Post.find(params[:id])
 
-		if @post.update(params[:post].permit(:title, :text, :author, :short))
+		if @post.update(params[:post].permit(:title, :text, :author, :short, :photo))
 			redirect_to @post
 		else
 			render 'edit'
@@ -51,6 +51,6 @@ class PostsController < ApplicationController
 
 	private
 	  def post_params
-	    params.require(:post).permit(:title, :text, :author, :short)
+	    params.require(:post).permit(:title, :text, :author, :short, :photo)
 	  end
 end

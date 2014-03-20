@@ -1,7 +1,7 @@
 
 <div class="fluid wizy">
 
-<%= form_for @post do |f| %>
+<%= form_for @post, :html => { :multipart => true } do |f| %>
   <ul>
     <li>
       <%= f.text_field :title, :placeholder => "Title" %>
@@ -18,7 +18,9 @@
     <li>
       <%= f.text_area :text, :placeholder => "Write your blog here", :class => "common", :id => "comments" %>
     </li>
-
+    <li>
+      <%= f.file_field :photo %>
+    </li>
     <li>
       <%= f.submit %>
     </li>
