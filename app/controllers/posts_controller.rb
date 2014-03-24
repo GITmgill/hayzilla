@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-	http_basic_authenticate_with name: "zillahay", password: "12321", except: [:index, :show]
+	before_filter :authorize, only: [:edit, :update, :destroy, :create]
 
 	def new
 		@post = Post.new

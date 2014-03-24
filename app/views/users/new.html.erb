@@ -1,2 +1,33 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div class="fluid wizy">
+<h3>Users</h3>
+<%= form_for(:user, :url => {:controller => 'users', :action => 'create'}) do |f| %>
+  <ul>
+    <li>
+      <%= f.text_field :username, :placeholder => "Name" %>
+    </li>
+
+    <li>
+      <%= f.text_field :email, :placeholder => "Email" %>
+    </li>
+
+    <li>
+      <%= f.password_field :password, :placeholder => "Password" %>
+    </li>
+
+    <li>
+      <%= f.password_field :password_confirmation, :placeholder => "Password Confirmation" %>
+    </li>
+    <li>
+      <%= f.submit %>
+    </li>
+  </ul>
+<% end %>
+	<% if @user.errors.any? %>
+	<ul class="Signup_Errors">
+	<% for message_error in @user.errors.full_messages %>
+	<li>* <%= message_error %></li>
+	<% end %>
+	</ul>
+	<% end %>
+
+</div>

@@ -27,7 +27,6 @@ end
 
 gem "paperclip", "~> 3.5.3"
 
-
 #font awesome
 gem 'font-awesome-rails'
 
@@ -61,6 +60,8 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc','0.3.20', require: false
 end
+
+gem "bcrypt-ruby"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

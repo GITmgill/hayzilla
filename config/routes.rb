@@ -1,8 +1,10 @@
 Hayzilla::Application.routes.draw do
-  get "users/new"
   root  'posts#index'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/archive', to: 'posts#archive', via: 'get'
+  get 'signup', to: 'users#new', as: 'signup'
+  get 'login', to: 'sessions#new', as: 'login'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -57,6 +59,8 @@ Hayzilla::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  resources :sessions
+  resources :user
   resources :posts do
     resources :comments
   end

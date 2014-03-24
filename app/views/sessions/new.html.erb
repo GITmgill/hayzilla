@@ -1,0 +1,20 @@
+
+<div class="fluid wizy">
+<%= form_tag sessions_path do %>
+	<ul>
+		<li>
+			<%= text_field_tag :email, params[:email], :placeholder => "Email" %>
+		</li>
+		<li>
+			<%= label_tag  :Password %>
+		</li>
+		<li>
+			<%= password_field_tag :password %>
+		</li>
+
+		<li>
+			<%= submit_tag "Log In" %>
+		</li>
+	</ul>
+<% end %>
+</div>
