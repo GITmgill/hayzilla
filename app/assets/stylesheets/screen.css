@@ -245,6 +245,26 @@ img, object, embed, video {
   .hide_desktop {
     display: none;
   }
+
+  .dash_post_list {
+    width: 75%;
+  }
+
+  .list_each {
+    width: 70%;
+  }
+
+  .crud {
+    width: 25%;
+    margin-left: 4%;
+    clear: none;
+  }
+
+  .dash_right {
+    width: 20%;
+    margin-left: 4%;
+    clear: none;
+  }
 }
 body {
   font-family: 'Raleway', sans-serif;
@@ -626,4 +646,71 @@ nav .pagination a:hover {
 .comments_form li:nth-child(2) input[type="text"] {
   font-size: 1.05882em;
   line-height: 1.55556em;
+}
+
+.dash {
+  background-color: #222222;
+  padding: 30px 0;
+  min-height: 600px;
+}
+.dash h3 {
+  font-size: 2.47059em;
+  line-height: 1.33333em;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.list-items {
+  color: white;
+  padding: 10px 0;
+}
+.list-items.list-items:nth-child(odd) {
+  background-color: #363636;
+}
+.list-items.list-items:hover {
+  background-color: #ff5a26;
+  color: #222222;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+.list-items a {
+  color: white;
+}
+.list-items a:visited {
+  color: white;
+}
+
+.list_each {
+  padding-left: 1%;
+}
+
+.crud {
+  text-align: right;
+}
+.crud a {
+  margin: 0px 10px;
+}
+
+.create_new {
+  text-align: center;
+}
+.create_new h3 {
+  margin-bottom: 50px;
+}
+.create_new a {
+  display: block;
+  background-color: #ff5a26;
+  padding: 20px 0;
+  color: white;
+}
+.create_new a:visited {
+  color: white;
+}
+
+.alerts {
+  text-align: center;
+  margin-top: 30px;
+  color: white;
 }

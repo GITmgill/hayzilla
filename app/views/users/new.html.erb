@@ -1,6 +1,6 @@
 <div class="fluid wizy">
 <h3>Users</h3>
-<%= form_for(:user, :url => {:controller => 'users', :action => 'create'}) do |f| %>
+<%= form_for @user do |f| %>
   <ul>
     <li>
       <%= f.text_field :username, :placeholder => "Name" %>

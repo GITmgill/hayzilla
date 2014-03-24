@@ -2,6 +2,7 @@ Hayzilla::Application.routes.draw do
   root  'posts#index'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/archive', to: 'posts#archive', via: 'get'
+  match '/dashboard', to: 'posts#dashboard', via: 'get'
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
@@ -60,7 +61,7 @@ Hayzilla::Application.routes.draw do
   #     resources :products
   #   end
   resources :sessions
-  resources :user
+  resources :users
   resources :posts do
     resources :comments
   end

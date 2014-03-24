@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-	before_filter :authorize, only: [:edit, :update, :destroy, :create]
+	before_filter :authorize, only: [:edit, :update, :destroy, :create, :new, :dashboard]
 
 	def new
 		@post = Post.new
@@ -43,11 +43,15 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 		@post.destroy
 
-		redirect_to posts_path
+		redirect_to dashboard_path
 	end
 
 	def index
 	  @posts = Post.order("created_at DESC")
+	end
+
+	def dashboard
+		@posts = Post.all
 	end
 
 	private
