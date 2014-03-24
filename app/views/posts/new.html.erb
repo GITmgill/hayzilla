@@ -22,6 +22,9 @@
       <%= f.file_field :photo %>
     </li>
     <li>
+      <%= f.select(:state, options_for_select([['Draft', 'draft'],['Publish', 'published']])) %>
+    </li>
+    <li>
       <%= f.submit %>
     </li>
   </ul>

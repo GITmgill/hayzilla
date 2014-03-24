@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 		@post = Post.new(post_params)
 
 		if @post.save
-			redirect_to @post
+			redirect_to dashboard_path
 		else
 			render 'new'
 		end
@@ -32,8 +32,8 @@ class PostsController < ApplicationController
 	def update
 		@post = Post.find(params[:id])
 
-		if @post.update(params[:post].permit(:title, :text, :author, :short, :photo))
-			redirect_to @post
+		if @post.update(params[:post].permit(:title, :text, :author, :short, :photo, :state))
+			redirect_to dashboard_path
 		else
 			render 'edit'
 		end
@@ -47,15 +47,15 @@ class PostsController < ApplicationController
 	end
 
 	def index
-	  @posts = Post.order("created_at DESC")
+	  @posts = Post.where(:state => "published").order("created_at DESC")
 	end
 
 	def dashboard
-		@posts = Post.all
+		@posts = Post.order("created_at DESC")
 	end
 
 	private
 	  def post_params
-	    params.require(:post).permit(:title, :text, :author, :short, :photo)
+	    params.require(:post).permit(:title, :text, :author, :short, :photo, :state)
 	  end
 end
