@@ -1,12 +1,10 @@
 <% provide(:title, 'Archive') %>
 
 <div class="fluid archive_list">
-	<h3>2014</h3>
-		<nav>
-			<ul>
-			<% @posts.each do |post| %>
-				<li><%= post.title %></li>
-			<% end %>
-			</ul>
-		</nav>
+	<h3><%= Time.now.year %> </h3>
+		<ul>
+		<% @posts.each do |post| %>
+			<li><%= link_to post.title, post %> <span><%= post.created_at.strftime('%B, %d') %></span></li>
+		<% end %>
+		</ul>
 </div>

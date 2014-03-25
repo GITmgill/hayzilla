@@ -2,9 +2,10 @@ class StaticPagesController < ApplicationController
 	def home
 	end
 
-	def archive
+	def about
 	end
 
-	def about
+	def archive
+	  	@posts = Post.all
 	end
 end

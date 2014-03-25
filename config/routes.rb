@@ -1,11 +1,11 @@
 Hayzilla::Application.routes.draw do
   root  'posts#index'
   match '/about',   to: 'static_pages#about',   via: 'get'
-  match '/archive', to: 'posts#archive', via: 'get'
-  match '/dashboard', to: 'posts#dashboard', via: 'get'
+  match '/archive', to: 'static_pages#archive', via: 'get'
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
+  get 'dashboard', to: 'dashboard#index', as: 'dashboard'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -62,6 +62,7 @@ Hayzilla::Application.routes.draw do
   #   end
   resources :sessions
   resources :users
+  resources :dashboard
   resources :posts do
     resources :comments
   end

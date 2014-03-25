@@ -61,10 +61,9 @@ group :doc do
   gem 'sdoc','0.3.20', require: false
 end
 
+#encryption
 gem "bcrypt-ruby"
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use unicorn as the app server
 # gem 'unicorn'
