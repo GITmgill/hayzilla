@@ -6,7 +6,7 @@
 					<% @posts.each do |post| %>
 					<div class="fluid list-items">
 							<div class="fluid list_each">
-								<%= post.id %> <%= link_to post.title, post %>, <%= post.created_at.strftime('%b, %d') %> - <%= post.state %>
+								| <%= post.id %> | <%= link_to post.title, post %>, <%= post.created_at.strftime('%b, %d') %> - <%= post.state %>
 							</div>
 							<div class="fluid crud">
 								<i class="fa fa-pencil-square-o"></i><%= link_to 'Edit', edit_post_path(post) %>
@@ -24,9 +24,7 @@
 				<div class="fluid alerts">
 				<h3>Alerts!</h3>
 				<% @comments.each do |comment| %>
-					<% @posts.each do |post| %>
-						New ! in <%= link_to post.title, post %> - id: <%= comment.post_id %>.<br/>
-					<% end %>
+					New Comment, Post ID: | <%= comment.post_id %> |</br>
 				<% end %>
 				</div>
 			</div>
