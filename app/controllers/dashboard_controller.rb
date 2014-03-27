@@ -4,6 +4,7 @@ class DashboardController < ApplicationController
 
 	def index
 		@posts = Post.order("created_at DESC")
+		@comments = Comment.all
 	end
 
 end
