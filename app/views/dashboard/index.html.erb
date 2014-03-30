@@ -19,11 +19,13 @@
 					<h3>Manage Comments</h3>
 						<ul>
 							<% @comments.each do |comment| %>
+								<% if comment.flag == false %>
 								<li>
 									| <%= comment.post_id %> | 
 										<%= link_to comment.commenter, comment.post %> writes 
 											<%= link_to comment.body, comment.post %>
 								</li>
+								<% end %>
 							<% end %>
 						</ul>
 				</div>

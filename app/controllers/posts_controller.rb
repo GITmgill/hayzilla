@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
 	before_filter :authorize, only: [:edit, :update, :destroy, :create, :new]
+	before_action :find_post, only: [:edit, :update, :destroy, :show]
 
 	def index
 	  @posts = Post.where(:state => "published").order("created_at DESC")
@@ -11,7 +12,6 @@ class PostsController < ApplicationController
 	end
 
 	def show
-		@post = Post.find(params[:id])
 		redirect_to_good_slug(@post) and return if bad_slug?(@post)
 	end
 
@@ -26,11 +26,9 @@ class PostsController < ApplicationController
 	end
 
 	def edit
-		@post = Post.find(params[:id])
 	end
 
 	def update
-		@post = Post.find(params[:id])
 		if @post.update(params[:post].permit(post_params))
 			redirect_to dashboard_path
 		else
@@ -39,14 +37,15 @@ class PostsController < ApplicationController
 	end
 	
 	def destroy
-		@post = Post.find(params[:id])
 		@post.destroy
-
 		redirect_to dashboard_path
 	end
 
 	private
 	  def post_params
 	    params.require(:post).permit(:title, :text, :author, :short, :photo, :state)
+	  end
+	  def find_post
+	  	@post = Post.find(params[:id])
 	  end
 end
