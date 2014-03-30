@@ -736,6 +736,7 @@ nav .pagination a:hover {
 }
 .alerts li {
   padding: 5px;
+  color: white;
 }
 .alerts li h4 {
   font-weight: 800;

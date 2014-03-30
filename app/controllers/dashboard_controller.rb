@@ -4,6 +4,6 @@ class DashboardController < ApplicationController
 
 	def index
 		@posts = Post.all
-		@comments = Comment.all
+		@comments = Comment.where(:flag => false)
 	end
 end
