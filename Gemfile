@@ -64,7 +64,7 @@ end
 #encryption
 gem "bcrypt-ruby"
 
-
+require: 'sanitize'
 # Use unicorn as the app server
 # gem 'unicorn'
 
