@@ -10,7 +10,9 @@
     <li>
       <%= f.text_field :author, :placeholder => "Author" %>
     </li>
-
+    <li>
+      <%= image_tag @post.photo %>
+    </li>
     <li>
       <%= f.text_area :short, :placeholder => "First Paragraph" %>
     </li>
@@ -19,9 +21,11 @@
       <%= f.text_area :text, :placeholder => "Write your blog here", :class => "common", :id => "comments" %>
     </li>
     <li>
-      <%= f.file_field :pics %>
+      <%= label_tag 'photo', 'Update Photo <i class="fa fa-camera-retro"></i>'.html_safe %>
+      <%= f.file_field :photo %>
     </li>
     <li>
+      <%= label_tag 'state', 'Visibilty Options <i class="fa fa-eye"></i>'.html_safe %>
       <%= f.select(:state, options_for_select([['Draft', 'draft'],['Publish', 'published']])) %>
     </li>
     <li>

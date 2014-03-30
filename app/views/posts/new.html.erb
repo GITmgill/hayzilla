@@ -19,9 +19,11 @@
       <%= f.text_area :text, :placeholder => "Write your blog here", :class => "common", :id => "comments" %>
     </li>
     <li>
+      <%= label_tag 'photo', 'Add Photo <i class="fa fa-camera-retro"></i>'.html_safe %>
       <%= f.file_field :photo %>
     </li>
     <li>
+      <%= label_tag 'state', 'Visibilty Options <i class="fa fa-eye"></i>'.html_safe %>
       <%= f.select(:state, options_for_select([['Draft', 'draft'],['Publish', 'published']])) %>
     </li>
     <li>
