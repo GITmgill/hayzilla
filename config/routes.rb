@@ -6,6 +6,7 @@ Hayzilla::Application.routes.draw do
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get 'dashboard', to: 'dashboard#index', as: 'dashboard'
+  get 'comments', to: 'comments#show', as: 'comments'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -31,7 +31,7 @@ class PostsController < ApplicationController
 
 	def update
 		@post = Post.find(params[:id])
-		if @post.update(params[:post].permit(:title, :text, :author, :short, :photo, :state))
+		if @post.update(params[:post].permit(post_params))
 			redirect_to dashboard_path
 		else
 			render 'edit'

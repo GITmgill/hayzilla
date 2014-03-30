@@ -4,8 +4,6 @@ class DashboardController < ApplicationController
 
 	def index
 		@posts = Post.all
-		@comments = Comment.where(params[:post_id => -1])
-		
+		@comments = Comment.all
 	end
-
 end

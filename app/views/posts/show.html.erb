@@ -16,33 +16,41 @@
     <div class="gridContainer clearfix">
       <div class="fluid comments">
         <% @post.comments.each do |comment| %>
-        <div class="comments_each">
-          <p>
-            <strong><%= comment.commenter %></strong>
-          </p>
-         
-          <p>
-            <%= comment.body %>
-          </p>
-
-          <%= link_to 'Delete Comment', [comment.post, comment],
-                       method: :delete,
-                       data: { confirm: 'Are you sure?' } %>
-        </div>
-      <% end %>
-        <div class="fluid comments_form">
-          <h2>Add a comment:</h2>
-            <%= form_for([@post, @post.comments.build]) do |f| %>
-              <li>
-                <%= f.text_field :commenter, :placeholder => "Name" %>
-              </li>
-              <li>
-                <%= f.text_area :body, :placeholder => "Add a comment", :class => "common", :id => "comments" %>
-              </li>
-              <li>
-                <%= f.submit :value => "Comment" %>
-              </li>
+          <div class="comments_each">
+            <% if comment.flag == true || current_user  %>
+            <p>
+              <strong><%= comment.commenter %></strong>
+            </p>   
+            <p>
+              <%= comment.body %>
+            </p>
             <% end %>
+            <% if current_user %>
+            <div class="commentcrud">
+              <% if comment.flag == false %>
+              <p class="new">New Comment! <i class="fa fa-comments-o"></i></p><br/>
+              <i class="fa fa-check-circle"></i> <%= link_to 'Approve', edit_post_comment_path(@post,comment)  %>
+              <% end %>
+              <i class="fa fa-times-circle"></i> <%= link_to 'Delete', [comment.post, comment],
+                                                            method: :delete,
+                                                            data: { confirm: 'Are you sure?' } %>
+            </div>
+            <% end %>
+          </div>
+        <% end %>
+          <div class="fluid comments_form">
+            <h2>Add a comment:</h2>
+              <%= form_for([@post, @post.comments.build]) do |f| %>
+                <li>
+                  <%= f.text_field :commenter, :placeholder => "Name" %>
+                </li>
+                <li>
+                  <%= f.text_area :body, :placeholder => "Add a comment", :class => "common", :id => "comments" %>
+                </li>
+                <li>
+                  <%= f.submit :value => "Comment" %>
+                </li>
+              <% end %>
         </div>
       </div>
     </div>

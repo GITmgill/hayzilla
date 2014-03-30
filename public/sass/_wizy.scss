@@ -100,6 +100,24 @@
 }
 .comments_each {
 	margin: rhythm(1, 18px) auto rhythm(1, 18px);
+	.new {
+		background-color:$orange;
+		color:$white;
+		display:inline;
+		padding:3px;
+		@include border-radius(4px);
+	}
+	.commentcrud {
+		display:block;
+		margin:20px 0;
+		text-align:right;
+		a {
+			color:$orange;
+		}
+		a:visited {
+			color:$orange;
+		}
+	}
 }
 .comments_form {
 	li {
