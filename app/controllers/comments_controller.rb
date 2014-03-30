@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
 
-	before_filter :authorize, only: [:destroy, :show, :edit]
-	before_action :find_post, only: [:create, :edit, :destroy]
+	before_filter :authorize, only: [:destroy, :create, :edit]
+	before_action :find_comments, only: [:destroy, :create, :edit]
+	before_action :post_comment_find, only: [:edit, :destroy]
 
 	def create
 		@comment =
@@ -10,13 +11,11 @@ class CommentsController < ApplicationController
 	end
 
 	def edit
-		@comment = @post.comments.find(params[:id])
 		@comment.update_attribute(:flag, 'true')
 		redirect_to post_path(@post)
 	end
 
 	def destroy
-		@comment = @post.comments.find(params[:id])
 		@comment.destroy
 		redirect_to post_path(@post)
 	end
@@ -25,7 +24,10 @@ class CommentsController < ApplicationController
 		def comments_params
 			params.require(:comment).permit(:commenter, :body)
 		end
-		def find_post
+		def find_comments
 			@post = Post.find(params[:post_id])
+		end
+		def post_comment_find
+			@comment = @post.comments.find(params[:id])
 		end
 end

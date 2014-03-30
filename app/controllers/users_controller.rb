@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-	before_filter :authorize, only: [:new]
+	before_filter :authorize, only: []
 
 
 	def new

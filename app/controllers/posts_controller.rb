@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
 	before_filter :authorize, only: [:edit, :update, :destroy, :create, :new]
-	before_action :find_post, only: [:edit, :update, :destroy, :show]
+	before_filter :find_post, only: [:show, :update, :destory, :edit]
 
 	def index
 	  @posts = Post.where(:state => "published").order("created_at DESC")
@@ -17,7 +17,6 @@ class PostsController < ApplicationController
 
 	def create
 		@post = Post.new(post_params)
-
 		if @post.save
 			redirect_to dashboard_path
 		else
@@ -29,7 +28,7 @@ class PostsController < ApplicationController
 	end
 
 	def update
-		if @post.update(params[:post].permit(post_params))
+		if @post.update(post_params)
 			redirect_to dashboard_path
 		else
 			render 'edit'

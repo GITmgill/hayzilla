@@ -6,7 +6,10 @@
 					<% @posts.each do |post| %>
 					<div class="fluid list-items">
 							<div class="fluid list_each">
-								| <%= post.id %> | <%= link_to post.title, post %>, <%= post.created_at.strftime('%b, %d') %> - <%= post.state %>
+								| <%= post.id %> | 
+									<%= link_to post.title, post %>, 
+										<%= post.created_at.strftime('%b, %d') %> - 
+											<%= post.state %>
 							</div>
 							<div class="fluid crud">
 								<i class="fa fa-pencil-square-o"></i><%= link_to 'Edit', edit_post_path(post) %>
