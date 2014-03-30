@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
 	before_filter :authorize, only: [:edit, :update, :destroy, :create, :new]
-	before_filter :find_post, only: [:show, :update, :destory, :edit]
+	before_filter :find_post, only: [:show, :update, :destroy, :edit]
 
 	def index
 	  @posts = Post.where(:state => "published").order("created_at DESC")
