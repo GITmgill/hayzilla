@@ -34,7 +34,6 @@ gem 'font-awesome-rails'
 gem 'redcarpet'
 gem 'albino'
 gem 'nokogiri'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '4.0.1'
 
@@ -64,7 +63,6 @@ end
 #encryption
 gem "bcrypt-ruby"
 
-require: 'sanitize'
 # Use unicorn as the app server
 # gem 'unicorn'
 

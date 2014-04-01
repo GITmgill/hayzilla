@@ -7,8 +7,8 @@
           <% if !@post.photo.blank? %>
           <%= image_tag @post.photo.url %>
           <% end %>
-          <p><%= markdown(@post.short) %></p>
-          <p><%= markdown(@post.text) %></p>
+          <p><%= markdown @post.short %></p>
+          <p><%= markdown @post.text %></p>
         </article>
     </div>
   </div>

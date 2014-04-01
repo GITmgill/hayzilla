@@ -109,6 +109,14 @@ nav {
 				color:$green;
 			}
 		}
+		code {
+			padding:10px;
+			background-color:$black;
+			color:$white;
+			display:block;
+			@include adjust-font-size-to(16px);
+			font-family: 'Cutive Mono';
+		}
 		div {
 			margin: rhythm(2, 18px) auto rhythm(1, 18px);
 			text-align:right;

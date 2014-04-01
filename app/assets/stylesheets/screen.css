@@ -424,6 +424,15 @@ nav .pagination a:hover {
   content: "•";
   color: #7ea883;
 }
+.each_article article code {
+  padding: 10px;
+  background-color: #222222;
+  color: white;
+  display: block;
+  font-size: 0.94118em;
+  line-height: 1.75em;
+  font-family: 'Cutive Mono';
+}
 .each_article article div {
   margin: 3.11111em auto 1.55556em;
   text-align: right;
@@ -523,7 +532,8 @@ nav .pagination a:hover {
 }
 .wizy ul li label {
   display: block;
-  background-color: #ff6e3a;
+  background-color: #222222;
+  color: white;
   padding: 3px;
   margin: 10px 0;
 }
